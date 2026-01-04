@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">Aishiz</string>
+
+    <string name="models">Models</string>
+    <string name="parameters">Parameters</string>
+    <string name="add_model">Add model</string>
+    <string name="remove_model">Remove model</string>
+
+    <string name="send">Send</string>
+    <string name="stop">Stop</string>
+    <string name="type_a_message">Type a message…</string>
+
+    <string name="temperature">Temperature</string>
+    <string name="top_p">Top‑P</string>
+    <string name="top_k">Top‑K</string>
+    <string name="repeat_penalty">Repeat penalty</string>
+    <string name="max_tokens">Max tokens</string>
+    <string name="context_length">Context length</string>
+    <string name="seed">Seed</string>
+
+    <string name="reset_defaults">Reset defaults</string>
+    <string name="save_params">Save params</string>
+
+    <string name="no_model_selected">No model selected</string>
+</resources>

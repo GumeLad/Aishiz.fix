@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Provide missing attribute used in layouts to satisfy aapt linking. -->
+    <attr name="checkable" format="boolean" />
+</resources>
+
