@@ -27,7 +27,7 @@ object ModelStorage {
     }
 
     private fun guessExtension(name: String): String {
-        val lower = name.toLowerCase()
+        val lower = name.lowercase()
         return when {
             lower.endsWith(".gguf") -> ".gguf"
             lower.endsWith(".bin") -> ".bin"
