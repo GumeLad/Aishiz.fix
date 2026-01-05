@@ -15,8 +15,6 @@
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
 
 static JavaVM* g_vm = nullptr;
-static std::atomic<bool> g_backend_initialized{false};
-static std::mutex g_backend_mutex;
 
 struct GenerationRequest {
     std::atomic<bool> stop{false};
@@ -124,15 +122,8 @@ Java_com_example_aishiz_NativeLlamaBridge_startGeneration(
 
         LOGI("Loading model from: %s", modelPath.c_str());
 
-        // Initialize llama backend once globally
-        {
-            std::lock_guard<std::mutex> lock(g_backend_mutex);
-            if (!g_backend_initialized.load()) {
-                llama_backend_init();
-                g_backend_initialized.store(true);
-                LOGI("Llama backend initialized");
-            }
-        }
+        // Initialize llama backend
+        llama_backend_init();
 
         // Load model
         llama_model_params model_params = llama_model_default_params();
@@ -146,6 +137,7 @@ Java_com_example_aishiz_NativeLlamaBridge_startGeneration(
             tenv->DeleteGlobalRef(cbGlobal);
             cleanup_request(id);
             g_vm->DetachCurrentThread();
+            llama_backend_free();
             return;
         }
 
@@ -156,6 +148,7 @@ Java_com_example_aishiz_NativeLlamaBridge_startGeneration(
         ctx_params.n_ctx = 2048;  // Default context size
         ctx_params.n_batch = 512;
         ctx_params.n_threads = 4;
+        ctx_params.seed = seed >= 0 ? seed : time(nullptr);
         
         req->context = llama_init_from_model(req->model, ctx_params);
         
@@ -167,6 +160,7 @@ Java_com_example_aishiz_NativeLlamaBridge_startGeneration(
             tenv->DeleteGlobalRef(cbGlobal);
             cleanup_request(id);
             g_vm->DetachCurrentThread();
+            llama_backend_free();
             return;
         }
 
@@ -178,20 +172,9 @@ Java_com_example_aishiz_NativeLlamaBridge_startGeneration(
         sparams.top_p = topP;
         sparams.top_k = topK;
         sparams.penalty_repeat = repeatPenalty;
-        sparams.seed = seed >= 0 ? seed : time(nullptr);
+        sparams.seed = ctx_params.seed;
         
         req->sampler = common_sampler_init(req->model, sparams);
-        
-        if (req->sampler == nullptr) {
-            LOGE("Failed to create sampler");
-            jstring msg = tenv->NewStringUTF("Failed to create sampler.");
-            safeCallVoid(tenv, cbGlobal, onError, msg);
-            tenv->DeleteLocalRef(msg);
-            tenv->DeleteGlobalRef(cbGlobal);
-            cleanup_request(id);
-            g_vm->DetachCurrentThread();
-            return;
-        }
 
         // Tokenize prompt
         std::vector<llama_token> tokens = common_tokenize(req->context, prompt, true, true);
@@ -199,17 +182,6 @@ Java_com_example_aishiz_NativeLlamaBridge_startGeneration(
 
         // Prepare batch for prompt processing
         llama_batch batch = llama_batch_init(512, 0, 1);
-        
-        if (batch.n_tokens < 0) {
-            LOGE("Failed to initialize batch");
-            jstring msg = tenv->NewStringUTF("Failed to initialize batch.");
-            safeCallVoid(tenv, cbGlobal, onError, msg);
-            tenv->DeleteLocalRef(msg);
-            tenv->DeleteGlobalRef(cbGlobal);
-            cleanup_request(id);
-            g_vm->DetachCurrentThread();
-            return;
-        }
         
         // Add prompt tokens to batch
         for (size_t i = 0; i < tokens.size(); i++) {
@@ -230,6 +202,7 @@ Java_com_example_aishiz_NativeLlamaBridge_startGeneration(
             llama_batch_free(batch);
             cleanup_request(id);
             g_vm->DetachCurrentThread();
+            llama_backend_free();
             return;
         }
 
@@ -243,11 +216,8 @@ Java_com_example_aishiz_NativeLlamaBridge_startGeneration(
             // Sample next token
             const llama_token new_token_id = common_sampler_sample(req->sampler, req->context, -1);
             
-            // Get vocab for token checking
-            const llama_vocab* vocab = llama_model_get_vocab(req->model);
-            
             // Check for EOS
-            if (llama_vocab_is_eog(vocab, new_token_id)) {
+            if (llama_token_is_eog(req->model, new_token_id)) {
                 LOGI("EOS token generated, stopping");
                 break;
             }
@@ -291,10 +261,9 @@ Java_com_example_aishiz_NativeLlamaBridge_startGeneration(
         cleanup_request(id);
 
         g_vm->DetachCurrentThread();
+        llama_backend_free();
     });
     
-    // Keep track of the thread but detach it for async operation
-    // The thread will clean itself up through cleanup_request()
     req->thread.detach();
 
     return static_cast<jlong>(id);
