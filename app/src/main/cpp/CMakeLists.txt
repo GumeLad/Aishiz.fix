@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.18)
 project(aishiz_native VERSION 1.0.0 LANGUAGES C CXX)
 
 # ============================================================================
@@ -18,13 +18,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED true)
 if(DEFINED ANDROID_ABI)
     message(STATUS "Building for Android ABI: ${ANDROID_ABI}")
     if(ANDROID_ABI STREQUAL "arm64-v8a")
-        set(GGML_SYSTEM_ARCH "ARM")
-        set(GGML_CPU_KLEIDIAI ON)
-        set(GGML_OPENMP ON)
+        set(GGML_CPU_KLEIDIAI ON CACHE INTERNAL "Enable KleidiAI for ARM64")
+        set(GGML_OPENMP ON CACHE INTERNAL "Enable OpenMP for ARM64")
     elseif(ANDROID_ABI STREQUAL "x86_64")
-        set(GGML_SYSTEM_ARCH "x86")
-        set(GGML_CPU_KLEIDIAI OFF)
-        set(GGML_OPENMP OFF)
+        set(GGML_CPU_KLEIDIAI OFF CACHE INTERNAL "Disable KleidiAI for x86_64")
+        set(GGML_OPENMP OFF CACHE INTERNAL "Disable OpenMP for x86_64")
     else()
         message(WARNING "Unsupported ABI: ${ANDROID_ABI}, using defaults")
     endif()
@@ -37,13 +35,6 @@ add_subdirectory(${LLAMA_SRC} build-llama)
 # Build our native library
 add_library(aishiz_native SHARED
         native-lib.cpp
-)
-
-# Configure compile definitions
-target_compile_definitions(aishiz_native PRIVATE
-        GGML_SYSTEM_ARCH=${GGML_SYSTEM_ARCH}
-        GGML_CPU_KLEIDIAI=$<BOOL:${GGML_CPU_KLEIDIAI}>
-        GGML_OPENMP=$<BOOL:${GGML_OPENMP}>
 )
 
 # Include directories
