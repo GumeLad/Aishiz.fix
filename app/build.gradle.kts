@@ -53,7 +53,7 @@ externalNativeBuild {
     kotlinOptions {
         jvmTarget = rootProject.extra["kotlinJvmTarget"] as String
     }
-    ndkVersion = "21.4.7075529"
+    ndkVersion = "26.1.10909125"
     buildToolsVersion = "36.0.0"
 }
 
