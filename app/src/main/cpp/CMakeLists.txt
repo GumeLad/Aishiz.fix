@@ -1,6 +1,14 @@
 cmake_minimum_required(VERSION 3.14)
 project(aishiz_native VERSION 1.0.0 LANGUAGES C CXX)
 
+# ============================================================================
+# AISHIZ Native Build Configuration
+# 100% Offline LLM Inference with llama.cpp
+# ============================================================================
+# This CMake configuration builds the native layer for offline, on-device
+# LLM inference. No network capabilities are included or required.
+# ============================================================================
+
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED true)
 set(CMAKE_CXX_STANDARD 17)

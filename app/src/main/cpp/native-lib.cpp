@@ -6,6 +6,14 @@
 #include <unordered_map>
 #include <chrono>
 
+// ============================================================================
+// AISHIZ NATIVE BRIDGE - 100% OFFLINE LLM INFERENCE
+// ============================================================================
+// This native layer provides JNI bindings for on-device LLM inference using
+// llama.cpp. All operations are performed locally with no network access.
+// Models are loaded from local storage (GGUF format) via Android SAF URIs.
+// ============================================================================
+
 static JavaVM* g_vm = nullptr;
 
 struct Request {
