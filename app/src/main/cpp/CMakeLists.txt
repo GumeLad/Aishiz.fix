@@ -11,8 +11,9 @@ if(DEFINED ANDROID_ABI)
     message(STATUS "Detected Android ABI: ${ANDROID_ABI}")
     if(ANDROID_ABI STREQUAL "arm64-v8a")
         set(GGML_SYSTEM_ARCH "ARM")
-        set(GGML_CPU_KLEIDIAI ON)
-        set(GGML_OPENMP ON)
+        # Disable KleidiAI as it requires newer CMake
+        set(GGML_CPU_KLEIDIAI OFF)
+        set(GGML_OPENMP OFF)
     elseif(ANDROID_ABI STREQUAL "x86_64")
         set(GGML_SYSTEM_ARCH "x86")
         set(GGML_CPU_KLEIDIAI OFF)
@@ -24,6 +25,13 @@ endif()
 
 # Add llama.cpp as a subdirectory
 set(LLAMA_SRC ${CMAKE_CURRENT_LIST_DIR}/llama.cpp)
+
+# Enable building the common library
+set(LLAMA_BUILD_COMMON ON CACHE BOOL "Build common library" FORCE)
+
+# Disable CURL dependency
+set(LLAMA_CURL OFF CACHE BOOL "Disable CURL" FORCE)
+
 add_subdirectory(${LLAMA_SRC} build-llama)
 
 add_library(aishiz_native SHARED
@@ -50,5 +58,6 @@ target_link_libraries(aishiz_native
         llama
         common
         android
+        c++_shared
         ${log-lib}
 )

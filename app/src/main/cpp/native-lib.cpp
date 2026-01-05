@@ -148,7 +148,6 @@ Java_com_example_aishiz_NativeLlamaBridge_startGeneration(
         ctx_params.n_ctx = 2048;  // Default context size
         ctx_params.n_batch = 512;
         ctx_params.n_threads = 4;
-        ctx_params.seed = seed >= 0 ? seed : time(nullptr);
         
         req->context = llama_init_from_model(req->model, ctx_params);
         
@@ -172,7 +171,7 @@ Java_com_example_aishiz_NativeLlamaBridge_startGeneration(
         sparams.top_p = topP;
         sparams.top_k = topK;
         sparams.penalty_repeat = repeatPenalty;
-        sparams.seed = ctx_params.seed;
+        sparams.seed = seed >= 0 ? seed : time(nullptr);
         
         req->sampler = common_sampler_init(req->model, sparams);
 
@@ -216,8 +215,11 @@ Java_com_example_aishiz_NativeLlamaBridge_startGeneration(
             // Sample next token
             const llama_token new_token_id = common_sampler_sample(req->sampler, req->context, -1);
             
+            // Get vocab for token checking
+            const llama_vocab* vocab = llama_model_get_vocab(req->model);
+            
             // Check for EOS
-            if (llama_token_is_eog(req->model, new_token_id)) {
+            if (llama_vocab_is_eog(vocab, new_token_id)) {
                 LOGI("EOS token generated, stopping");
                 break;
             }
