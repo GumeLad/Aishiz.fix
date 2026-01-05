@@ -14,10 +14,3 @@ buildscript {
 
 // Provide Kotlin JVM target to subprojects via the root project's extra properties.
 extra["kotlinJvmTarget"] = "11"
-
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
