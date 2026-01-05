@@ -57,6 +57,13 @@ externalNativeBuild {
     buildToolsVersion = "36.0.0"
 }
 
+// Configure LLDB for native debugging
+android.ndkPath?.let { ndkPath ->
+    val lldbVersion = "3.1"
+    println("NDK path: $ndkPath")
+    println("LLDB should be available at: $ndkPath/toolchains/llvm/prebuilt/*/lib64/")
+}
+
 /**
  * Compatibility task.
  * Some IDEs / scripts try to run :app:testClasses (a Java plugin task).

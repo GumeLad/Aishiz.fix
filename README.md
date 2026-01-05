@@ -7,5 +7,60 @@ Clean Android Studio project baseline for an on-device **LLM chat** app.
 - Per-model inference params (right drawer): temperature, top-p, top-k, repeat penalty, max tokens, context length, seed
 - Chat UI with streaming stub and **Stop** cancellation
 
+## Prerequisites
+
+### LLDB Installation
+LLDB (LLVM Debugger) is required for debugging native C++ code. To install:
+
+**Option 1: Using the installation script (Linux/macOS)**
+```bash
+./install-lldb.sh
+```
+
+**Option 2: Using Android Studio**
+1. Open Android Studio
+2. Go to Tools → SDK Manager
+3. Click on the "SDK Tools" tab
+4. Check "LLDB" (version 3.1 or higher)
+5. Click "Apply" to install
+
+**Option 3: Using command line**
+```bash
+sdkmanager "lldb;3.1"
+```
+
+### llama.cpp Integration
+This project includes llama.cpp as a git submodule for on-device LLM inference.
+
+**Initial setup:**
+```bash
+git submodule update --init --recursive
+```
+
+If you cloned this repository and the `app/src/main/cpp/llama.cpp` directory is empty, run:
+```bash
+git submodule update --init --recursive
+```
+
+## Building the Project
+
+1. Ensure LLDB is installed (see above)
+2. Initialize llama.cpp submodule if not already done:
+   ```bash
+   git submodule update --init --recursive
+   ```
+3. Open the project in Android Studio
+4. Sync Gradle and build the project
+
+The native library will be built for the following ABIs:
+- `arm64-v8a` (ARM 64-bit, for most modern Android devices)
+- `x86_64` (Intel/AMD 64-bit, for emulators)
+
 ## Next integration milestone
 Wire an actual LLM engine (e.g., llama.cpp JNI / GGUF). The UI + persistence layer is already structured for it.
+
+**llama.cpp is now integrated!** The native layer includes llama.cpp for on-device inference. Next steps:
+- Update native-lib.cpp to use llama.cpp APIs for actual model loading and inference
+- Add GGUF model support
+- Implement proper token streaming with llama.cpp
+
