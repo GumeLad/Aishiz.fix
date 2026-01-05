@@ -182,7 +182,7 @@ sdkmanager "lldb;3.1"
 
 ### Build Errors
 - Ensure NDK 21.4.7075529 is installed
-- Check that CMake 3.14+ is available
+- Check that CMake 3.18+ is available
 - Verify all submodules are initialized
 
 ## License
