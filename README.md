@@ -30,6 +30,14 @@ cd Aishiz.fix
 ./gradlew assembleDebug
 ```
 
+If you've already cloned without `--recurse-submodules`:
+```bash
+cd Aishiz.fix
+git submodule init
+git submodule update
+./gradlew assembleDebug
+```
+
 ## Using GGUF Models
 1. Download a GGUF model (e.g., from Hugging Face)
 2. Use the model picker in the app to select your GGUF file
