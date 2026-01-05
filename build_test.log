@@ -1,0 +1,359 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :app
+w: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/build.gradle.kts:62:9: Variable 'lldbVersion' is never used
+Checking the license for package NDK (Side by side) 21.4.7075529 in /usr/local/lib/android/sdk/licenses
+License for package NDK (Side by side) 21.4.7075529 accepted.
+Preparing "Install NDK (Side by side) 21.4.7075529 v.21.4.7075529".
+"Install NDK (Side by side) 21.4.7075529 v.21.4.7075529" ready.
+Installing NDK (Side by side) 21.4.7075529 in /usr/local/lib/android/sdk/ndk/21.4.7075529
+"Install NDK (Side by side) 21.4.7075529 v.21.4.7075529" complete.
+"Install NDK (Side by side) 21.4.7075529 v.21.4.7075529" finished.
+
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkKotlinGradlePluginConfigurationErrors
+> Task :app:generateDebugResValues
+> Task :app:dataBindingMergeDependencyArtifactsDebug
+> Task :app:generateDebugResources
+> Task :app:checkDebugAarMetadata
+> Task :app:mapDebugSourceSetPaths
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:processDebugMainManifest
+> Task :app:mergeDebugResources
+> Task :app:processDebugManifest
+> Task :app:packageDebugResources
+> Task :app:processDebugManifestForPackage
+> Task :app:javaPreCompileDebug
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:parseDebugLocalResources
+> Task :app:mergeDebugAssets
+> Task :app:dataBindingGenBaseClassesDebug
+> Task :app:compressDebugAssets
+> Task :app:processDebugResources
+> Task :app:checkDebugDuplicateClasses
+> Task :app:desugarDebugFileDependencies
+
+> Task :app:compileDebugKotlin
+e: Incompatible classes were found in dependencies. Remove them from the classpath or use '-Xskip-metadata-version-check' to suppress errors
+e: file:///home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/META-INF/kotlin-stdlib-jdk7.kotlin_moduleModule was compiled with an incompatible version of Kotlin. The binary version of its metadata is 2.1.0, expected version is 1.9.0.
+e: file:///home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/META-INF/kotlin-stdlib-jdk8.kotlin_moduleModule was compiled with an incompatible version of Kotlin. The binary version of its metadata is 2.1.0, expected version is 1.9.0.
+e: file:///home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/META-INF/kotlin-stdlib.kotlin_moduleModule was compiled with an incompatible version of Kotlin. The binary version of its metadata is 2.1.0, expected version is 1.9.0.
+e: file:///home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-android/1.10.2/c8705d275d81f19e8afaf3ff9b5bf7a4b6b6c19b/kotlinx-coroutines-android-1.10.2.jar!/META-INF/kotlinx-coroutines-android.kotlin_moduleModule was compiled with an incompatible version of Kotlin. The binary version of its metadata is 2.1.0, expected version is 1.9.0.
+e: file:///home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm/1.10.2/4a9f78ef49483748e2c129f3d124b8fa249dafbf/kotlinx-coroutines-core-jvm-1.10.2.jar!/META-INF/kotlinx-coroutines-core.kotlin_moduleModule was compiled with an incompatible version of Kotlin. The binary version of its metadata is 2.1.0, expected version is 1.9.0.
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/AishizPrefs.kt:12:63 Unresolved reference: mutableListOf
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/AishizPrefs.kt:15:23 Unresolved reference: mutableListOf
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/AishizPrefs.kt:16:25 Unresolved reference: until
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/AishizPrefs.kt:28:13 Unresolved reference: mutableListOf
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/AishizPrefs.kt:40:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/AishizPrefs.kt:43:13 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/AishizPrefs.kt:46:13 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/AishizPrefs.kt:52:34 Unresolved reference: filterNot
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/AishizPrefs.kt:52:46 Unresolved reference: it
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/AishizPrefs.kt:53:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/AishizPrefs.kt:54:49 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/AishizPrefs.kt:57:13 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/AishizPrefs.kt:64:61 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/AishizPrefs.kt:94:66 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/AishizPrefs.kt:106:60 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/ChatAdapter.kt:37:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/ChatAdapter.kt:38:53 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/ChatAdapter.kt:39:58 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/ChatAdapter.kt:45:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/ChatAdapter.kt:49:29 Unresolved reference: indexOfLast
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/ChatAdapter.kt:49:43 Unresolved reference: it
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/ChatAdapter.kt:52:13 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:17:27 Class 'kotlinx.coroutines.Job' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm/1.10.2/4a9f78ef49483748e2c129f3d124b8fa249dafbf/kotlinx-coroutines-core-jvm-1.10.2.jar!/kotlinx/coroutines/Job.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:18:27 Unresolved reference: delay
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:19:27 Unresolved reference: launch
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:26:28 Unresolved reference: mutableListOf
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:31:32 Class 'kotlinx.coroutines.Job' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm/1.10.2/4a9f78ef49483748e2c129f3d124b8fa249dafbf/kotlinx-coroutines-core-jvm-1.10.2.jar!/kotlinx/coroutines/Job.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:34:45 Unresolved reference: lazy
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:49:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:50:29 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:57:15 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:58:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:59:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:60:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:61:30 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:65:15 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:66:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:67:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:69:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:71:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:73:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:74:26 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:74:68 Unresolved reference: apply
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:75:13 Unresolved reference: stackFromEnd
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:77:26 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:79:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:80:22 Unresolved reference: mutableListOf
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:83:23 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:84:17 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:85:17 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:86:17 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:87:38 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:90:28 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:91:28 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:93:32 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:94:23 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:97:35 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:100:23 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:101:17 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:102:17 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:103:17 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:107:28 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:107:49 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:108:28 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:108:49 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:111:35 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:115:23 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:116:17 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:120:34 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:128:72 Unresolved reference: toIntOrNull
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:129:74 Unresolved reference: toIntOrNull
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:130:62 Unresolved reference: toIntOrNull
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:132:23 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:136:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:137:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:138:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:142:58 Unresolved reference: trim
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:145:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:148:21 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:149:35 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:150:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:153:39 Unresolved reference: firstOrNull
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:153:53 Unresolved reference: it
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:157:21 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:158:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:163:13 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:167:17 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:178:29 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:180:45 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:181:33 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:186:29 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:187:33 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:192:29 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:193:33 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:194:45 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:195:33 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:206:22 Unresolved reference: buildString
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:207:13 Unresolved reference: append
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:208:13 Unresolved reference: append
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:209:13 Unresolved reference: append
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:210:13 Unresolved reference: append
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:210:37 Unresolved reference: format
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:211:13 Unresolved reference: append
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:211:39 Unresolved reference: format
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:212:13 Unresolved reference: append
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:213:13 Unresolved reference: append
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:213:38 Unresolved reference: format
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:214:13 Unresolved reference: append
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:215:13 Unresolved reference: append
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:216:13 Unresolved reference: append
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:217:13 Unresolved reference: append
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:222:9 Class 'kotlinx.coroutines.Job' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm/1.10.2/4a9f78ef49483748e2c129f3d124b8fa249dafbf/kotlinx-coroutines-core-jvm-1.10.2.jar!/kotlinx/coroutines/Job.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:222:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:222:40 Unresolved reference: launch
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:225:20 Overload resolution ambiguity: 
+public open fun append(p0: StringBuffer!): StringBuilder! defined in java.lang.StringBuilder
+public open fun append(p0: Any!): StringBuilder! defined in java.lang.StringBuilder
+public open fun append(p0: Boolean): StringBuilder! defined in java.lang.StringBuilder
+public open fun append(p0: Char): StringBuilder! defined in java.lang.StringBuilder
+public open fun append(p0: CharArray!): StringBuilder! defined in java.lang.StringBuilder
+public open fun append(p0: CharSequence!): StringBuilder! defined in java.lang.StringBuilder
+public open fun append(p0: Double): StringBuilder! defined in java.lang.StringBuilder
+public open fun append(p0: Float): StringBuilder! defined in java.lang.StringBuilder
+public open fun append(p0: Int): StringBuilder! defined in java.lang.StringBuilder
+public open fun append(p0: Long): StringBuilder! defined in java.lang.StringBuilder
+public open fun append(p0: String!): StringBuilder! defined in java.lang.StringBuilder
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:226:29 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:227:17 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:228:17 Unresolved reference: delay
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:236:22 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:243:27 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:244:27 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:245:27 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:246:36 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:247:32 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:248:30 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:249:27 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:254:39 Unresolved reference: firstOrNull
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:254:53 Unresolved reference: it
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:255:34 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:260:9 Class 'kotlinx.coroutines.Job' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm/1.10.2/4a9f78ef49483748e2c129f3d124b8fa249dafbf/kotlinx-coroutines-core-jvm-1.10.2.jar!/kotlinx/coroutines/Job.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:260:24 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:261:9 Class 'kotlinx.coroutines.Job' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm/1.10.2/4a9f78ef49483748e2c129f3d124b8fa249dafbf/kotlinx-coroutines-core-jvm-1.10.2.jar!/kotlinx/coroutines/Job.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:261:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:265:13 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:266:35 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:269:13 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:276:34 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:292:21 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:297:22 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:304:38 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/MainActivity.kt:308:38 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/ModelAdapter.kt:11:42 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/ModelAdapter.kt:23:16 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/ModelAdapter.kt:24:25 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/ModelAdapter.kt:25:13 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/ModelAdapter.kt:26:13 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/ModelAdapter.kt:27:13 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/ModelAdapter.kt:32:16 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/ModelAdapter.kt:34:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/ModelAdapter.kt:35:9 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/ModelAdapter.kt:38:44 Unresolved reference: firstOrNull
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/ModelAdapter.kt:38:58 Unresolved reference: it
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/ModelAdapter.kt:42:31 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/ModelAdapter.kt:43:26 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/ModelStorage.kt:20:54 Unresolved reference: use
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/ModelStorage.kt:20:60 Cannot infer a type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/ModelStorage.kt:21:13 Unresolved reference: requireNotNull
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/ModelStorage.kt:22:39 Unresolved reference: use
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/ModelStorage.kt:22:45 Cannot infer a type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/ModelStorage.kt:30:26 Unresolved reference: toLowerCase
+e: file:///home/runner/work/Aishiz.fix/Aishiz.fix/app/src/main/java/com/example/aishiz/NativeLlamaBridge.kt:12:16 Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. The actual metadata version is 2.1.0, but the compiler version 1.9.0 can read versions up to 2.0.0.
+The class is loaded from /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.0/85f8b81009cda5890e54ba67d64b5e599c645020/kotlin-stdlib-2.1.0.jar!/kotlin/Unit.class
+
+> Task :app:mergeExtDexDebug
+> Task :app:compileDebugKotlin FAILED
+
+[Incubating] Problems report is available at: file:///home/runner/work/Aishiz.fix/Aishiz.fix/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileDebugKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 3m 58s
+24 actionable tasks: 24 executed

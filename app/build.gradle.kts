@@ -58,10 +58,10 @@ externalNativeBuild {
 }
 
 // Configure LLDB for native debugging
+// LLDB is included with the Android SDK for debugging native C++ code
 android.ndkPath?.let { ndkPath ->
-    val lldbVersion = "3.1"
     println("NDK path: $ndkPath")
-    println("LLDB should be available at: $ndkPath/toolchains/llvm/prebuilt/*/lib64/")
+    println("LLDB should be available for native debugging")
 }
 
 /**
