@@ -57,13 +57,6 @@ externalNativeBuild {
     buildToolsVersion = "36.0.0"
 }
 
-// Configure LLDB for native debugging
-// LLDB is included with the Android SDK for debugging native C++ code
-android.ndkPath?.let { ndkPath ->
-    println("NDK path: $ndkPath")
-    println("LLDB should be available for native debugging")
-}
-
 /**
  * Compatibility task.
  * Some IDEs / scripts try to run :app:testClasses (a Java plugin task).
