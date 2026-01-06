@@ -23,7 +23,7 @@ The CMake build system has been updated to:
 
 ### 3. LLDB Support
 LLDB (LLVM Debugger) configuration for native C++ debugging:
-- NDK version specified: 21.4.7075529
+- NDK version recommended: 21.4.7075529 (optionally pin via `ndkVersion = "21.4.7075529"` in the `android` block of `build.gradle.kts`)
 - LLDB integration in build.gradle.kts
 - Installation script: `install-lldb.sh`
 
