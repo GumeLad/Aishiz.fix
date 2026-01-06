@@ -11,7 +11,7 @@ This is an Android application that provides on-device LLM (Large Language Model
 - **Minimum SDK**: 24
 - **Target SDK**: 34
 - **Compile SDK**: 36
-- **Java Version**: 11
+- **Java Version**: 17 (required for Android Gradle Plugin 8.9.1+)
 - **Gradle Version**: 8.14.3
 
 ## Building the Project
@@ -19,7 +19,7 @@ This is an Android application that provides on-device LLM (Large Language Model
 ### Prerequisites
 1. Android SDK with NDK version 26.1.10909125
 2. CMake 3.22.1 or higher
-3. JDK 17 (for CI) or JDK 11+ (for local development)
+3. JDK 17 (required for Android Gradle Plugin 8.9.1+)
 4. Git submodules initialized (llama.cpp)
 
 ### Build Commands
@@ -209,10 +209,10 @@ This is typically a temporary network issue with Maven Central. Try:
 ## CI/CD
 
 ### GitHub Actions Workflows
-- **gradle.yml**: Main CI workflow that builds the project and submits dependency graph
-- Runs on push to `master` and pull requests
+- **android.yml**: Main CI workflow that builds and tests the project
+- Runs on push to `master` and pull requests to `master`
 - Uses JDK 17 and Gradle wrapper
-- Automatically initializes Git submodules
+- Automatically initializes Git submodules via `submodules: 'recursive'` in checkout action
 
 ### CI Build Command
 ```bash
