@@ -201,10 +201,13 @@ sdkmanager --install "cmake;3.22.1"
 ```
 
 **Maven Central 403 errors**:
-This is typically a temporary network issue with Maven Central. Try:
-1. Wait a few minutes and retry
-2. Clear Gradle cache: `./gradlew clean --refresh-dependencies`
-3. Check Maven Central status at https://status.maven.org/
+This is typically a temporary network issue with Maven Central or a rate-limiting problem. Solutions:
+1. **Wait and retry**: Maven Central may be experiencing temporary issues
+2. **Clear Gradle cache**: `./gradlew clean --refresh-dependencies`
+3. **Use a VPN or different network**: Some networks/IPs may be rate-limited
+4. **Check Maven Central status**: Visit https://status.maven.org/
+5. **Use mirror repositories**: Configure alternative Maven mirrors in `settings.gradle.kts` if the issue persists
+6. **Wait for CI**: GitHub Actions runners typically have better connectivity to Maven Central
 
 ## CI/CD
 
