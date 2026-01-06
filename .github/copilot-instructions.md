@@ -1,20 +1,248 @@
-# Copilot Instructions
+# Aishiz - On-Device LLM Chat App
 
-- Model policy: enable Claude Sonnet 4.5 for all clients when available.
-- This is an Android LLM chat app. UI + business logic live in [app/src/main/java/com/example/aishiz/MainActivity.kt](app/src/main/java/com/example/aishiz/MainActivity.kt); llama.cpp JNI bridge is in [app/src/main/cpp/native-lib.cpp](app/src/main/cpp/native-lib.cpp) with build config in [app/src/main/cpp/CMakeLists.txt](app/src/main/cpp/CMakeLists.txt).
-- UI flow: left drawer manages models, right drawer manages per-model inference params, center shows chat list via [app/src/main/java/com/example/aishiz/ChatAdapter.kt](app/src/main/java/com/example/aishiz/ChatAdapter.kt) and [app/src/main/java/com/example/aishiz/ChatMessage.kt](app/src/main/java/com/example/aishiz/ChatMessage.kt).
-- Persistence: models + params stored in JSON strings inside SharedPreferences via [app/src/main/java/com/example/aishiz/AishizPrefs.kt](app/src/main/java/com/example/aishiz/AishizPrefs.kt). Adding a model auto-creates default params and selects it if none exists.
-- Model storage: when starting native generation we copy the SAF-selected URI into internal storage (deduplicated by UUID) via [app/src/main/java/com/example/aishiz/ModelStorage.kt](app/src/main/java/com/example/aishiz/ModelStorage.kt). Extension guessing prefers .gguf/.bin.
-- Inference params object is [app/src/main/java/com/example/aishiz/InferenceParams.kt](app/src/main/java/com/example/aishiz/InferenceParams.kt); UI read/write happens in MainActivity (save/reset buttons). Defaults: temp 0.70, topP 0.95, topK 40, repeatPenalty 1.10, maxTokens 256, ctx 2048, seed -1.
-- Sending message: `onSend()` appends a user message, inserts an empty assistant message, then tries native streaming first (JNI). If native unavailable or fails, falls back to a Kotlin stub that types out an echo header.
-- JNI bridge: [app/src/main/java/com/example/aishiz/NativeLlamaBridge.kt](app/src/main/java/com/example/aishiz/NativeLlamaBridge.kt) exports `startGeneration` (returns requestId) and `stopGeneration`; `System.loadLibrary("aishiz_native")` is executed in the object initializer.
-- Native pipeline (native-lib.cpp): for each request we load the GGUF model (llama.cpp), init context, configure sampler (temp/topP/topK/repeatPenalty/seed), tokenize prompt, run a generation loop, and stream token strings to the Kotlin callback. EOS or stop flag ends generation; cleanup frees sampler/context/model and detaches thread.
-- Cancellation: MainActivity tracks `generationJob` (stub) and `activeNativeRequestId` (native). `stopGeneration()` cancels both paths; always reset `activeNativeRequestId` on complete/error.
-- Drawer actions: model select/remove buttons update prefs + adapter; params drawer uses number sliders/text inputs. Keep adapters in sync by calling `refreshModelsUi()`, `loadParamsIntoUi()`, and `updateActiveModelLabel()` after changes.
-- Build: requires llama.cpp submodule; clone with `--recurse-submodules` or run `git submodule init && git submodule update`. Use `./gradlew assembleDebug` (or the `testClasses` alias) to build; `ndkVersion` pinned to 26.1.10909125 and buildToolsVersion 36.0.0 in [app/build.gradle.kts](app/build.gradle.kts).
-- Native build: CMake enables llama.cpp common lib, disables CURL and OpenMP/Kleidi for mobile. ABI filters: arm64-v8a and x86_64. Context defaults in native code (n_ctx 2048, n_batch 512, n_threads 4); adjust there if threading/batching changes are needed.
-- Streaming UI: `ChatAdapter.updateLastAssistantText()` replaces the last assistant entry; it finds the last `Role.ASSISTANT` item. Ensure order is preserved (user then placeholder assistant) to avoid index issues.
-- Error handling: native path reports errors via callback `onError(message)` which updates the last assistant message in MainActivity. Kotlin stub does not currently surface errors; extend if you add non-JNI inference.
-- Model picker: uses SAF OpenDocument with persisted read permission; some providers may reject persistable grants (caught and ignored).
-- Testing: no bespoke test tasks; instrumented/unit tests are stock template. For quick sanity, launch emulator/device and run the app; stop button should cancel both stub and native runs.
-- If adding features, follow the existing pattern of simple data classes + adapters and keep JNI signatures stable (update both Kotlin and C++ if you change params).
+This is an Android application that provides on-device LLM (Large Language Model) inference using llama.cpp. The app features a clean chat UI with streaming responses, multi-model management, and configurable inference parameters.
+
+## Repository Overview
+
+- **Language**: Kotlin (Android), C++ (Native layer via JNI)
+- **Build System**: Gradle with Kotlin DSL
+- **NDK Version**: 26.1.10909125
+- **CMake Version**: 3.22.1 or higher
+- **Minimum SDK**: 24
+- **Target SDK**: 34
+- **Compile SDK**: 36
+- **Java Version**: 17 (required for Android Gradle Plugin 8.9.1+)
+- **Gradle Version**: 8.14.3
+
+## Building the Project
+
+### Prerequisites
+1. Android SDK with NDK version 26.1.10909125
+2. CMake 3.22.1 or higher
+3. JDK 17 (required for Android Gradle Plugin 8.9.1+)
+4. Git submodules initialized (llama.cpp)
+
+### Build Commands
+
+**Initialize submodules** (required before first build):
+```bash
+git submodule init
+git submodule update --recursive
+```
+
+**Build the app**:
+```bash
+./gradlew assembleDebug
+```
+
+**Build release version**:
+```bash
+./gradlew assembleRelease
+```
+
+**Clean build**:
+```bash
+./gradlew clean assembleDebug
+```
+
+## Testing the Project
+
+### Unit Tests
+```bash
+./gradlew test
+```
+
+### Instrumented Tests
+```bash
+./gradlew connectedAndroidTest
+```
+
+Note: Instrumented tests require a connected Android device or emulator.
+
+### Test Location
+- Unit tests: `app/src/test/java/com/example/aishiz/`
+- Instrumented tests: `app/src/androidTest/java/com/example/aishiz/`
+
+## Repository Structure
+
+```
+.
+├── app/
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/com/example/aishiz/     # Kotlin source files
+│   │   │   │   ├── MainActivity.kt           # Main activity with chat UI
+│   │   │   │   ├── NativeLlamaBridge.kt      # JNI bridge to C++
+│   │   │   │   ├── ModelStorage.kt           # Model management
+│   │   │   │   ├── ChatAdapter.kt            # Chat RecyclerView adapter
+│   │   │   │   ├── ModelAdapter.kt           # Model list adapter
+│   │   │   │   ├── AishizPrefs.kt            # SharedPreferences wrapper
+│   │   │   │   ├── InferenceParams.kt        # Model inference parameters
+│   │   │   │   ├── ChatMessage.kt            # Chat message data class
+│   │   │   │   └── ModelInfo.kt              # Model info data class
+│   │   │   ├── cpp/                          # Native C++ code
+│   │   │   │   ├── CMakeLists.txt            # CMake build configuration
+│   │   │   │   ├── native-lib.cpp            # JNI bindings to llama.cpp
+│   │   │   │   └── llama.cpp/                # Git submodule (ggerganov/llama.cpp)
+│   │   │   ├── res/                          # Android resources (layouts, strings, etc.)
+│   │   │   └── AndroidManifest.xml
+│   │   ├── test/                             # Unit tests
+│   │   └── androidTest/                      # Instrumented tests
+│   ├── build.gradle.kts                      # App-level Gradle build file
+│   └── proguard-rules.pro                    # ProGuard configuration
+├── gradle/
+│   └── libs.versions.toml                    # Version catalog for dependencies
+├── build.gradle.kts                          # Root-level Gradle build file
+├── settings.gradle.kts                       # Gradle settings
+├── README.md                                 # Project README
+├── LLAMA_CPP_INTEGRATION.md                  # Detailed llama.cpp integration guide
+└── .github/
+    └── workflows/                            # GitHub Actions CI workflows
+```
+
+## Code Standards and Conventions
+
+### Kotlin Code Style
+1. **Follow Android Kotlin Style Guide**: Use standard Kotlin conventions for Android development
+2. **ViewBinding**: Use ViewBinding for view access (already configured in the project)
+3. **Coroutines**: Use Kotlin Coroutines for asynchronous operations (already configured)
+4. **Lifecycle-aware components**: Use lifecycle-aware coroutines (`lifecycleScope`) in Activities
+
+### Naming Conventions
+- **Package**: `com.example.aishiz`
+- **Classes**: PascalCase (e.g., `MainActivity`, `ChatAdapter`)
+- **Functions/Variables**: camelCase (e.g., `startGeneration`, `activeNativeRequestId`)
+- **Constants**: UPPER_SNAKE_CASE (if used)
+- **Layout files**: snake_case (e.g., `activity_main.xml`, `item_chat_message.xml`)
+
+### Android Development Practices
+1. **Use AndroidX libraries**: The project uses AndroidX, not legacy support libraries
+2. **Minimum SDK considerations**: Target API 24+ (Android 7.0)
+3. **Material Design**: Use Material Design components from `com.google.android.material`
+4. **Thread safety**: Native calls are thread-safe; use proper synchronization for shared state
+
+### Native (C++) Code Standards
+1. **C++ Standard**: C++17 (configured in CMakeLists.txt)
+2. **JNI naming**: Follow JNI naming conventions for native functions (e.g., `Java_com_example_aishiz_NativeLlamaBridge_startGeneration`)
+3. **Memory management**: Properly manage JNI references and native resources
+4. **Logging**: Use Android Log functions (`__android_log_print`) with tag `Aishiz-Native`
+
+## Dependencies
+
+### Dependency Management
+- Dependencies are managed using a **version catalog** in `gradle/libs.versions.toml`
+- Always update the version catalog when adding or updating dependencies
+- Check for security vulnerabilities before adding new dependencies
+
+### Current Major Dependencies
+- **Android Gradle Plugin**: 8.9.1
+- **Kotlin**: 2.1.0
+- **AndroidX Core**: 1.17.0
+- **AppCompat**: 1.7.1
+- **Material Components**: 1.13.0
+- **ConstraintLayout**: 2.2.1
+- **Lifecycle**: 2.10.0
+- **Coroutines**: 1.10.2
+- **llama.cpp**: Git submodule (current commit can be checked with `git submodule status`)
+
+### Adding Dependencies
+When adding new dependencies:
+1. Add version to `[versions]` section in `gradle/libs.versions.toml`
+2. Add library definition to `[libraries]` section
+3. Reference it in `app/build.gradle.kts` using `implementation(libs.library.name)`
+
+## Native Development (NDK/CMake)
+
+### llama.cpp Integration
+- The project uses **llama.cpp as a Git submodule** located at `app/src/main/cpp/llama.cpp`
+- Always ensure submodules are initialized before building
+- See `LLAMA_CPP_INTEGRATION.md` for detailed integration information
+
+### CMake Configuration
+- CMakeLists.txt is located at `app/src/main/cpp/CMakeLists.txt`
+- Configures GGML build options for Android ARM/x86 architectures
+- Disables KleidiAI and OpenMP for compatibility
+- Links with llama and common libraries from llama.cpp
+
+### Supported ABIs
+- `arm64-v8a` (64-bit ARM devices)
+- `x86_64` (x86 emulators and tablets)
+
+### Updating llama.cpp Submodule
+```bash
+cd app/src/main/cpp/llama.cpp
+git fetch origin
+git checkout main  # or specific commit/tag
+git pull
+cd ../../../..
+git add app/src/main/cpp/llama.cpp
+git commit -m "Update llama.cpp submodule"
+```
+
+## Troubleshooting
+
+### Common Build Issues
+
+**Submodule not initialized**:
+```bash
+git submodule init
+git submodule update --recursive
+```
+
+**NDK not found**:
+Install the exact NDK version using Android SDK Manager:
+```bash
+sdkmanager --install "ndk;26.1.10909125"
+```
+
+**CMake version issues**:
+```bash
+sdkmanager --install "cmake;3.22.1"
+```
+
+**Maven Central 403 errors**:
+This is typically a temporary network issue with Maven Central or a rate-limiting problem. Solutions:
+1. **Wait and retry**: Maven Central may be experiencing temporary issues
+2. **Clear Gradle cache**: `./gradlew clean --refresh-dependencies`
+3. **Check network configuration**:
+   - Verify proxy settings in `gradle.properties` or environment variables
+   - Check corporate firewall configurations that may block Maven Central
+   - Try disabling VPN or switching networks
+4. **Use a VPN or different network**: Some networks/IPs may be rate-limited
+5. **Check Maven Central status**: Visit https://status.maven.org/
+6. **Use mirror repositories**: Configure alternative Maven mirrors in `settings.gradle.kts` if the issue persists
+7. **Wait for CI**: GitHub Actions runners typically have better connectivity to Maven Central
+
+## CI/CD
+
+### GitHub Actions Workflows
+- **android.yml**: Main CI workflow that builds and tests the project
+- Runs on push to `master` and pull requests to `master`
+- Uses JDK 17 and Gradle wrapper
+- Automatically initializes Git submodules via `submodules: 'recursive'` in checkout action
+
+### CI Build Command
+```bash
+./gradlew build
+```
+
+## Key Guidelines for Contributors
+
+1. **Keep dependencies up to date**: Regularly update dependencies to their latest stable versions
+2. **Fix build errors**: Address any build errors that conflict with changes
+3. **Maintain compatibility**: Ensure changes work on minimum SDK 24
+4. **Test on multiple ABIs**: Verify native code changes on both arm64-v8a and x86_64
+5. **Document native changes**: Update LLAMA_CPP_INTEGRATION.md if modifying native integration
+6. **Use existing patterns**: Follow the existing code structure and patterns in the project
+7. **Submodule awareness**: Always remember to initialize and update submodules
+8. **View binding**: Use view binding for new activities/fragments (don't use findViewById)
+9. **Coroutines for async**: Use Kotlin Coroutines for asynchronous operations, not callbacks
+10. **Material Design**: Follow Material Design guidelines for UI components
+
+## Additional Resources
+
+- [Android Developers Documentation](https://developer.android.com/)
+- [Kotlin for Android Documentation](https://kotlinlang.org/docs/android-overview.html)
+- [llama.cpp GitHub Repository](https://github.com/ggerganov/llama.cpp)
+- [Android NDK Documentation](https://developer.android.com/ndk)
+- [CMake Android Integration](https://developer.android.com/ndk/guides/cmake)
