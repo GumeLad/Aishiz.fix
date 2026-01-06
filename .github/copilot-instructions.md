@@ -143,7 +143,7 @@ Note: Instrumented tests require a connected Android device or emulator.
 - **ConstraintLayout**: 2.2.1
 - **Lifecycle**: 2.10.0
 - **Coroutines**: 1.10.2
-- **llama.cpp**: Git submodule at commit `92ac1e016b4327bb58f62a098cd6bc484d9d6cbf`
+- **llama.cpp**: Git submodule (current commit can be checked with `git submodule status`)
 
 ### Adding Dependencies
 When adding new dependencies:
@@ -204,10 +204,14 @@ sdkmanager --install "cmake;3.22.1"
 This is typically a temporary network issue with Maven Central or a rate-limiting problem. Solutions:
 1. **Wait and retry**: Maven Central may be experiencing temporary issues
 2. **Clear Gradle cache**: `./gradlew clean --refresh-dependencies`
-3. **Use a VPN or different network**: Some networks/IPs may be rate-limited
-4. **Check Maven Central status**: Visit https://status.maven.org/
-5. **Use mirror repositories**: Configure alternative Maven mirrors in `settings.gradle.kts` if the issue persists
-6. **Wait for CI**: GitHub Actions runners typically have better connectivity to Maven Central
+3. **Check network configuration**:
+   - Verify proxy settings in `gradle.properties` or environment variables
+   - Check corporate firewall configurations that may block Maven Central
+   - Try disabling VPN or switching networks
+4. **Use a VPN or different network**: Some networks/IPs may be rate-limited
+5. **Check Maven Central status**: Visit https://status.maven.org/
+6. **Use mirror repositories**: Configure alternative Maven mirrors in `settings.gradle.kts` if the issue persists
+7. **Wait for CI**: GitHub Actions runners typically have better connectivity to Maven Central
 
 ## CI/CD
 
