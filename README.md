@@ -70,10 +70,8 @@ This application is designed to be **100% offline**:
 - ✅ No network dependencies in the application code
 - ✅ Complete privacy - your data never leaves the device
 
-## Next integration milestone
-Wire an actual LLM engine (e.g., llama.cpp JNI / GGUF). The UI + persistence layer is already structured for it.
-
-**llama.cpp is now integrated!** The native layer includes llama.cpp for on-device inference. Next steps:
+## Integration status and next steps
+**llama.cpp is now integrated** as a git submodule and in the native layer for on-device inference. The UI and persistence layer are already structured for it. Remaining work:
 - Update native-lib.cpp to use llama.cpp APIs for actual model loading and inference
 - Add GGUF model support
 - Implement proper token streaming with llama.cpp
