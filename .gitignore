@@ -13,10 +13,7 @@
 .externalNativeBuild
 .cxx
 local.properties
-
-# Build logs
 *.log
-
-# Android build output
-/app/build
-**/build/
+build.log
+full_assemble.log
+resource.log
