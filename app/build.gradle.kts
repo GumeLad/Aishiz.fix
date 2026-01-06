@@ -36,6 +36,8 @@ externalNativeBuild {
         getByName("release") {
             isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            applicationIdSuffix = rootProject.extra["kotlinJvmTarget"] as String
+            versionNameSuffix = rootProject.extra["kotlinJvmTarget"] as String
         }
         getByName("debug") {
             isMinifyEnabled = false
