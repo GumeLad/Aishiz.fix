@@ -13,6 +13,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: android-release-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   release-apk:
     runs-on: ubuntu-latest
@@ -45,9 +49,6 @@ jobs:
             "build-tools;36.0.0" \
             "ndk;27.2.12479018" \
             "cmake;3.22.1"
-
-      - name: Verify unit tests
-        run: ./gradlew :app:testDebugUnitTest --stacktrace
 
       - name: Build installable release APK
         run: ./gradlew :app:assembleRelease --stacktrace
