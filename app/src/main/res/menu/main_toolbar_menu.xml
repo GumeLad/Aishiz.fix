@@ -3,15 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/action_home"
+        android:icon="@android:drawable/ic_menu_revert"
+        android:title="@string/home"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/action_models"
-        android:title="@string/models"
         android:icon="@android:drawable/ic_menu_agenda"
+        android:title="@string/models"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_params"
-        android:title="@string/parameters"
         android:icon="@android:drawable/ic_menu_manage"
+        android:title="@string/parameters"
         app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_clear_chat"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:title="@string/clear_chat"
+        app:showAsAction="never" />
 
 </menu>
