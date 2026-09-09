@@ -454,6 +454,13 @@ class MainActivity : AppCompatActivity() {
                     return@launch
                 }
 
+                // A native callback can complete extremely quickly. If that happened
+                // before startGeneration returned, don't retain a stale request id.
+                if (serial != generationSerial || !isGenerating) {
+                    runCatching { NativeLlamaBridge.stopGeneration(requestId) }
+                    return@launch
+                }
+
                 activeNativeRequestId = requestId
             } catch (t: Throwable) {
                 if (serial == generationSerial) {
