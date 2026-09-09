@@ -18,8 +18,12 @@ object NativeLlamaBridge {
         temperature: Float,
         topP: Float,
         topK: Int,
+        minP: Float,
         repeatPenalty: Float,
         maxTokens: Int,
+        contextLength: Int,
+        batchSize: Int,
+        threads: Int,
         seed: Int,
         callback: TokenCallback
     ): Long

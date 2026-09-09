@@ -1,26 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">Aishiz</string>
+    <string name="home_subtitle">Private, on-device LLM chat</string>
 
     <string name="models">Models</string>
+    <string name="chats">Chats</string>
     <string name="parameters">Parameters</string>
+    <string name="settings">Settings</string>
     <string name="add_model">Add model</string>
     <string name="remove_model">Remove model</string>
+    <string name="model_storage">Model storage</string>
+    <string name="model_cache_explanation">Imported models are copied into Aishiz storage once so llama.cpp can load them quickly and reliably.</string>
+    <string name="clear_imported_models">Clear imported model cache</string>
+    <string name="model_cache_cleared">Imported model cache cleared</string>
+    <string name="model_cache_clear_failed">Could not clear imported model cache</string>
+
+    <string name="new_chat">New chat</string>
+    <string name="previous_chats">Previous chats</string>
+    <string name="clear_chat">Clear chat</string>
+    <string name="delete_chat">Delete chat?</string>
+    <string name="delete_chat_message">This removes the chat history from this device.</string>
+    <string name="chat_delete_hint">Long-press a chat to delete it.</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="clear">Clear</string>
+    <string name="home">Home</string>
 
     <string name="send">Send</string>
     <string name="stop">Stop</string>
-    <string name="type_a_message">Type a message…</string>
+    <string name="type_a_message">Message Aishiz</string>
+    <string name="preparing_model">Preparing model…</string>
+    <string name="backend_unavailable">The llama.cpp backend could not be loaded.</string>
+    <string name="select_gguf_model">Add and select a GGUF model first.</string>
+    <string name="gguf_only">Aishiz currently supports GGUF LLM models only.</string>
 
     <string name="temperature">Temperature</string>
-    <string name="top_p">Top‑P</string>
-    <string name="top_k">Top‑K</string>
+    <string name="top_p">Top-P</string>
+    <string name="top_k">Top-K</string>
+    <string name="min_p">Min-P</string>
     <string name="repeat_penalty">Repeat penalty</string>
     <string name="max_tokens">Max tokens</string>
     <string name="context_length">Context length</string>
+    <string name="batch_size">Batch size</string>
+    <string name="threads">CPU threads (0 = auto)</string>
+    <string name="threads_hint">Auto is recommended. Higher values can increase heat and reduce sustained performance.</string>
     <string name="seed">Seed</string>
 
-    <string name="reset_defaults">Reset defaults</string>
-    <string name="save_params">Save params</string>
+    <string name="reset_defaults">Reset</string>
+    <string name="save_params">Save</string>
+    <string name="params_saved">Model parameters saved</string>
+
+    <string name="auto_scroll">Auto-scroll while generating</string>
+    <string name="keep_screen_awake">Keep screen awake during generation</string>
+    <string name="stream_interval">Streaming refresh rate</string>
+    <string name="stream_interval_value">Update response every %1$d ms</string>
 
     <string name="no_model_selected">No model selected</string>
 </resources>

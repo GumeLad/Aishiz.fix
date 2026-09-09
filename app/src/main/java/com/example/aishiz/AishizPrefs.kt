@@ -12,24 +12,22 @@ class AishizPrefs(context: Context) {
         val raw = prefs.getString(KEY_MODELS, null) ?: return mutableListOf()
         return try {
             val arr = JSONArray(raw)
-            val out = mutableListOf<ModelInfo>()
-            for (i in 0 until arr.length()) {
-                val obj = arr.getJSONObject(i)
-                out.add(
-                    ModelInfo(
-                        id = obj.getString("id"),
-                        name = obj.getString("name"),
-                        uri = obj.getString("uri")
-                    )
+            MutableList(arr.length()) { index ->
+                val obj = arr.getJSONObject(index)
+                ModelInfo(
+                    id = obj.getString("id"),
+                    name = obj.getString("name"),
+                    uri = obj.getString("uri")
                 )
             }
-            out
         } catch (_: Exception) {
             mutableListOf()
         }
     }
 
     fun addModel(name: String, uriString: String): ModelInfo {
+        getModels().firstOrNull { it.uri == uriString }?.let { return it }
+
         val models = getModels()
         val model = ModelInfo(
             id = UUID.randomUUID().toString(),
@@ -38,10 +36,8 @@ class AishizPrefs(context: Context) {
         )
         models.add(model)
         saveModels(models)
+        saveParams(model.id, InferenceParams())
 
-        if (prefs.getString(paramsKey(model.id), null) == null) {
-            saveParams(model.id, InferenceParams())
-        }
         if (getSelectedModelId() == null) {
             setSelectedModelId(model.id)
         }
@@ -72,9 +68,12 @@ class AishizPrefs(context: Context) {
                 temperature = o.optDouble("temperature", 0.70).toFloat(),
                 topP = o.optDouble("topP", 0.95).toFloat(),
                 topK = o.optInt("topK", 40),
+                minP = o.optDouble("minP", 0.05).toFloat(),
                 repeatPenalty = o.optDouble("repeatPenalty", 1.10).toFloat(),
-                maxTokens = o.optInt("maxTokens", 256),
+                maxTokens = o.optInt("maxTokens", 384),
                 contextLength = o.optInt("contextLength", 2048),
+                batchSize = o.optInt("batchSize", 256),
+                threads = o.optInt("threads", 0),
                 seed = o.optInt("seed", -1)
             )
         } catch (_: Exception) {
@@ -83,25 +82,29 @@ class AishizPrefs(context: Context) {
     }
 
     fun saveParams(modelId: String, p: InferenceParams) {
-        val o = JSONObject()
-        o.put("temperature", p.temperature.toDouble())
-        o.put("topP", p.topP.toDouble())
-        o.put("topK", p.topK)
-        o.put("repeatPenalty", p.repeatPenalty.toDouble())
-        o.put("maxTokens", p.maxTokens)
-        o.put("contextLength", p.contextLength)
-        o.put("seed", p.seed)
+        val o = JSONObject().apply {
+            put("temperature", p.temperature.toDouble())
+            put("topP", p.topP.toDouble())
+            put("topK", p.topK)
+            put("minP", p.minP.toDouble())
+            put("repeatPenalty", p.repeatPenalty.toDouble())
+            put("maxTokens", p.maxTokens)
+            put("contextLength", p.contextLength)
+            put("batchSize", p.batchSize)
+            put("threads", p.threads)
+            put("seed", p.seed)
+        }
         prefs.edit().putString(paramsKey(modelId), o.toString()).apply()
     }
 
     private fun saveModels(models: List<ModelInfo>) {
         val arr = JSONArray()
-        for (m in models) {
-            val obj = JSONObject()
-            obj.put("id", m.id)
-            obj.put("name", m.name)
-            obj.put("uri", m.uri)
-            arr.put(obj)
+        models.forEach { model ->
+            arr.put(JSONObject().apply {
+                put("id", model.id)
+                put("name", model.name)
+                put("uri", model.uri)
+            })
         }
         prefs.edit().putString(KEY_MODELS, arr.toString()).apply()
     }
